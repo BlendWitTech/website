@@ -2,8 +2,12 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/blendwi1/public_html
-    - /bin/cp -R * $DEPLOYPATH/
-    - /bin/cp -R .[^.]* $DEPLOYPATH/ 2>/dev/null || true
+    - echo "Starting deployment to $DEPLOYPATH"
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -Rf index.html styles.css script.js robots.txt sitemap.xml privacy-policy.html terms-of-service.html $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp -Rf assets $DEPLOYPATH/ 2>/dev/null || true
     - /bin/chmod -R 755 $DEPLOYPATH
+    - /bin/chmod 644 $DEPLOYPATH/*.html $DEPLOYPATH/*.css $DEPLOYPATH/*.js $DEPLOYPATH/*.txt $DEPLOYPATH/*.xml 2>/dev/null || true
     - echo "Deployment completed successfully"
+    - echo "Files deployed to: $DEPLOYPATH"
 
