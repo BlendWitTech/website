@@ -2,6 +2,25 @@
 
 User-agent: *
 Allow: /
+Allow: /index.html
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
+
+# Disallow old pages that no longer exist
+Disallow: /listings/
+Disallow: /seo-analyst
+Disallow: /careers/
+Disallow: /blog/
+Disallow: /news/
+
+# Disallow admin and private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /.github/
+
+# Sitemap location
+Sitemap: https://blendwit.com/sitemap.xml
 Disallow: /privacy-policy.html
 Disallow: /terms-of-service.html
 
