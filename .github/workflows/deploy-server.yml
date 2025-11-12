@@ -32,8 +32,10 @@ jobs:
           source: "."
           target: ${{ secrets.SERVER_DEPLOY_PATH }}
           strip_components: 0
+          rm: false
+          overwrite: true
       
-      - name: Restart Web Server (if needed)
+      - name: Set File Permissions
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -41,8 +43,9 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT || 22 }}
           script: |
-            # Add commands to restart your web server if needed
-            # sudo systemctl restart nginx
-            # sudo systemctl restart apache2
-            echo "Deployment completed successfully!"
+            cd ${{ secrets.SERVER_DEPLOY_PATH }}
+            chmod -R 755 .
+            chmod 644 *.html *.css *.js *.txt *.xml 2>/dev/null || true
+            echo "✅ Deployment completed successfully!"
+            echo "📁 Files deployed to: ${{ secrets.SERVER_DEPLOY_PATH }}"
 
