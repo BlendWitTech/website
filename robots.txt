@@ -1,0 +1,13 @@
+# robots.txt for blendwit.com
+
+User-agent: *
+Allow: /
+Disallow: /privacy-policy.html
+Disallow: /terms-of-service.html
+
+# Sitemap
+Sitemap: https://blendwit.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
