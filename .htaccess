@@ -10,41 +10,68 @@
     # RewriteCond %{HTTPS} off
     # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # Redirect old listing pages to homepage
-    RewriteRule ^listings/.*$ / [R=301,L]
-    RewriteRule ^listings$ / [R=301,L]
+    # Redirect old listing pages to homepage (catch all variations)
+    RewriteRule ^listings(/.*)?$ / [R=301,L]
+    RewriteRule ^listing(/.*)?$ / [R=301,L]
+    RewriteRule ^e-commerce.*$ / [R=301,L]
+    RewriteRule ^ecommerce.*$ / [R=301,L]
 
-    # Redirect old SEO analyst page
-    RewriteRule ^seo-analyst/?$ /#services [R=301,L]
+    # Redirect old SEO analyst page to services
+    RewriteRule ^seo-analyst/?$ / [R=301,L]
+    RewriteRule ^seo/?$ / [R=301,L]
+    RewriteRule ^analyst/?$ / [R=301,L]
 
-    # Redirect old career pages
-    RewriteRule ^careers/?$ /#about [R=301,L]
-    RewriteRule ^career/?$ /#about [R=301,L]
+    # Redirect old career pages to homepage
+    RewriteRule ^careers/?$ / [R=301,L]
+    RewriteRule ^career/?$ / [R=301,L]
+    RewriteRule ^jobs/?$ / [R=301,L]
+    RewriteRule ^job/?$ / [R=301,L]
 
-    # Redirect old service pages to services section
-    RewriteRule ^services/.*$ /#services [R=301,L]
-    RewriteRule ^service/.*$ /#services [R=301,L]
+    # Redirect old service pages to homepage (services are on homepage)
+    RewriteRule ^services/.*$ / [R=301,L]
+    RewriteRule ^service/.*$ / [R=301,L]
 
-    # Redirect old about pages
-    RewriteRule ^about/?$ /#about [R=301,L]
-    RewriteRule ^about-us/?$ /#about [R=301,L]
+    # Redirect old about pages to homepage (about is on homepage)
+    RewriteRule ^about/?$ / [R=301,L]
+    RewriteRule ^about-us/?$ / [R=301,L]
+    RewriteRule ^aboutus/?$ / [R=301,L]
 
-    # Redirect old contact pages
-    RewriteRule ^contact/?$ /#contact [R=301,L]
-    RewriteRule ^contact-us/?$ /#contact [R=301,L]
+    # Redirect old contact pages to homepage (contact is on homepage)
+    RewriteRule ^contact/?$ / [R=301,L]
+    RewriteRule ^contact-us/?$ / [R=301,L]
+    RewriteRule ^contactus/?$ / [R=301,L]
 
-    # Redirect old portfolio/work pages
-    RewriteRule ^portfolio/?$ /#portfolio [R=301,L]
-    RewriteRule ^work/?$ /#portfolio [R=301,L]
-    RewriteRule ^projects/?$ /#portfolio [R=301,L]
+    # Redirect old portfolio/work pages to homepage (portfolio is on homepage)
+    RewriteRule ^portfolio/?$ / [R=301,L]
+    RewriteRule ^work/?$ / [R=301,L]
+    RewriteRule ^projects/?$ / [R=301,L]
+    RewriteRule ^project/?$ / [R=301,L]
+    RewriteRule ^our-work/?$ / [R=301,L]
+    RewriteRule ^ourwork/?$ / [R=301,L]
 
-    # Redirect old testimonial pages
-    RewriteRule ^testimonials/?$ /#testimonials [R=301,L]
-    RewriteRule ^reviews/?$ /#testimonials [R=301,L]
+    # Redirect old testimonial pages to homepage (testimonials are on homepage)
+    RewriteRule ^testimonials/?$ / [R=301,L]
+    RewriteRule ^testimonial/?$ / [R=301,L]
+    RewriteRule ^reviews/?$ / [R=301,L]
+    RewriteRule ^review/?$ / [R=301,L]
 
-    # Redirect old blog/news pages to homepage (if blog doesn't exist)
-    RewriteRule ^blog/.*$ / [R=301,L]
-    RewriteRule ^news/.*$ / [R=301,L]
+    # Redirect old blog/news pages to homepage
+    RewriteRule ^blog(/.*)?$ / [R=301,L]
+    RewriteRule ^news(/.*)?$ / [R=301,L]
+    RewriteRule ^article(/.*)?$ / [R=301,L]
+    RewriteRule ^post(/.*)?$ / [R=301,L]
+
+    # Redirect any other old pages or subdirectories to homepage
+    # This catches any remaining old pages
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^/index\.html$ [NC]
+    RewriteCond %{REQUEST_URI} !^/privacy-policy\.html$ [NC]
+    RewriteCond %{REQUEST_URI} !^/terms-of-service\.html$ [NC]
+    RewriteCond %{REQUEST_URI} !^/404\.html$ [NC]
+    RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+    RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+    RewriteRule ^(.*)$ / [R=301,L]
 
     # Handle 404 errors
     ErrorDocument 404 /404.html
