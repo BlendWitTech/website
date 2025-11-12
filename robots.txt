@@ -21,12 +21,6 @@ Disallow: /.github/
 
 # Sitemap location
 Sitemap: https://blendwit.com/sitemap.xml
-Disallow: /privacy-policy.html
-Disallow: /terms-of-service.html
-
-# Sitemap
-Sitemap: https://blendwit.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
-
