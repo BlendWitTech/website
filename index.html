@@ -1368,17 +1368,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
-                
-                <!-- Google Maps Commutes Widget -->
-                <div class="commutes-widget-wrapper fade-in-up">
-                    <div class="commutes-widget-header">
-                        <h3>📍 Find Us</h3>
-                        <p>Get directions to our office and see commute times</p>
-                    </div>
-                    <div class="commutes" id="commutesWidget">
-                        <!-- Commutes widget will be initialized here -->
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1528,62 +1517,6 @@
 
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
-    <!-- Google Maps Commutes Widget Styles -->
-    <style>
-    .commutes-widget-wrapper {
-        margin-top: 3rem;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        background: var(--background-alt);
-    }
-    
-    .commutes-widget-header {
-        padding: 2rem;
-        text-align: center;
-        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-        color: white;
-    }
-    
-    .commutes-widget-header h3 {
-        font-size: 1.75rem;
-        margin-bottom: 0.5rem;
-        color: white;
-        font-family: var(--font-display);
-    }
-    
-    .commutes-widget-header p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1rem;
-    }
-    
-    #commutesWidget {
-        height: 500px;
-        min-height: 400px;
-    }
-    
-    @media (max-width: 768px) {
-        .commutes-widget-wrapper {
-            margin-top: 2rem;
-        }
-        
-        .commutes-widget-header {
-            padding: 1.5rem;
-        }
-        
-        .commutes-widget-header h3 {
-            font-size: 1.5rem;
-        }
-        
-        #commutesWidget {
-            height: 400px;
-        }
-    }
-    </style>
-    
-    <!-- Google Maps Commutes Widget - Full Implementation -->
-    <script src="commutes-full.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
