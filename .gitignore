@@ -38,3 +38,10 @@ build/
 *.temp
 .cache/
 
+# SSH Keys (NEVER commit private keys!)
+deploy_key
+*.pem
+*.key
+id_rsa
+id_ed25519
+
