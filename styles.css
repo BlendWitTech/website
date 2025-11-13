@@ -462,7 +462,15 @@ html {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
+    z-index: 10001;
+    position: relative;
+    border-radius: 8px;
+    transition: all var(--transition-base);
+}
+
+.nav-toggle:hover {
+    background: var(--background-alt);
 }
 
 .nav-toggle span {
@@ -471,6 +479,11 @@ html {
     background: var(--text-primary);
     border-radius: 2px;
     transition: all var(--transition-base);
+    display: block;
+}
+
+.nav-toggle.active span {
+    background: var(--primary-color);
 }
 
 /* Theme Toggle Button */
@@ -2264,6 +2277,38 @@ section {
     }
 }
 
+@media (max-width: 768px) {
+    .portfolio-carousel-container {
+        padding: 0 60px;
+    }
+    
+    .portfolio-image-container {
+        height: 280px;
+    }
+    
+    .portfolio-info-card {
+        padding: 24px;
+    }
+    
+    .portfolio-info-card h3 {
+        font-size: 22px;
+    }
+    
+    .portfolio-info-card p {
+        font-size: 15px;
+    }
+    
+    .portfolio-number {
+        font-size: 38px;
+    }
+    
+    .carousel-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 640px) {
     .portfolio-carousel-container {
         padding: 0 50px;
@@ -2274,25 +2319,78 @@ section {
     }
     
     .portfolio-info-card {
-        padding: 24px;
+        padding: 20px;
     }
     
     .portfolio-info-card h3 {
         font-size: 20px;
+        margin-bottom: 10px;
     }
     
     .portfolio-info-card p {
         font-size: 14px;
+        margin-bottom: 20px;
     }
     
     .portfolio-number {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .carousel-btn {
         width: 40px;
         height: 40px;
         font-size: 14px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .carousel-btn:hover {
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-carousel-container {
+        padding: 0 40px;
+    }
+    
+    .portfolio-image-container {
+        height: 220px;
+    }
+    
+    .portfolio-info-card {
+        padding: 18px;
+    }
+    
+    .portfolio-info-card h3 {
+        font-size: 18px;
+    }
+    
+    .portfolio-info-card p {
+        font-size: 13px;
+    }
+    
+    .portfolio-number {
+        font-size: 28px;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+    
+    .carousel-dots {
+        margin-top: 30px;
+        gap: 8px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .dot.active {
+        width: 30px;
     }
 }
 
@@ -2584,20 +2682,114 @@ section {
         flex: 0 0 calc(80% - 20px);
         min-width: calc(80% - 20px);
     }
+    
+    .testimonial-card {
+        padding: 50px 40px;
+    }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .testimonials-carousel-container {
         padding: 0 50px;
     }
     
     .testimonial-slide {
-        flex: 0 0 calc(100% - 40px);
-        min-width: calc(100% - 40px);
+        flex: 0 0 calc(90% - 20px);
+        min-width: calc(90% - 20px);
+    }
+    
+    .testimonial-card {
+        padding: 40px 30px;
+    }
+    
+    .testimonial-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .testimonials-carousel-container {
+        padding: 0 40px;
+    }
+    
+    .testimonial-slide {
+        flex: 0 0 calc(100% - 20px);
+        min-width: calc(100% - 20px);
     }
     
     .testimonials-carousel {
-        gap: 30px;
+        gap: 20px;
+    }
+    
+    .testimonial-card {
+        padding: 35px 25px;
+    }
+    
+    .testimonial-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    
+    .testimonial-stars {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+    
+    .author-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .author-info h4 {
+        font-size: 20px;
+    }
+    
+    .testimonial-dots {
+        margin-top: 35px;
+        gap: 10px;
+    }
+    
+    .t-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .t-dot.active {
+        width: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-carousel-container {
+        padding: 0 30px;
+    }
+    
+    .testimonial-card {
+        padding: 30px 20px;
+    }
+    
+    .testimonial-text {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    .testimonial-stars {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .author-image {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 16px;
+    }
+    
+    .author-info h4 {
+        font-size: 18px;
+    }
+    
+    .author-info span {
+        font-size: 14px;
     }
 }
 
@@ -3150,6 +3342,10 @@ section {
         --section-padding: 60px 0;
     }
     
+    .nav-toggle {
+        display: flex;
+    }
+    
     .hero {
         min-height: auto;
         padding: 80px 0 60px;
@@ -3186,6 +3382,11 @@ section {
         width: 40px;
         height: 40px;
         font-size: 16px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .carousel-btn:hover {
+        transform: translateY(-50%) scale(1.05);
     }
     
     .contact-content {
@@ -3206,20 +3407,87 @@ section {
 @media (max-width: 639px) {
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
         background: var(--card-bg);
         flex-direction: column;
-        padding: 40px 20px;
-        transition: left 0.3s ease;
-        box-shadow: var(--shadow-lg);
-        z-index: 999;
+        padding: 80px 30px 30px;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        overflow-y: auto;
+        gap: 0;
     }
     
     .nav-links.active {
         left: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 16px 20px;
+        margin: 4px 0;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .nav-link::before {
+        display: none;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--background-alt);
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .theme-toggle {
+        width: 100%;
+        margin: 20px 0 0 0;
+        border-radius: 12px;
+        height: 48px;
+        border: 2px solid var(--border-color);
+    }
+    
+    .theme-toggle:hover {
+        border-color: var(--primary-color);
+        transform: scale(1);
+    }
+    
+    /* Mobile menu overlay - using ::after for backdrop */
+    .nav-links::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .nav-links.active::after {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
     }
     
     .mobile-menu-toggle {
@@ -3294,15 +3562,31 @@ section {
         height: 90px;
     }
     
+    .portfolio-carousel-container,
+    .testimonials-carousel-container {
+        padding: 0 35px;
+    }
+    
     .carousel-btn {
         width: 36px;
         height: 36px;
-        font-size: 14px;
+        font-size: 12px;
     }
     
-    .portfolio-carousel-container,
-    .testimonials-carousel-container {
-        padding: 0 40px;
+    .nav-links {
+        width: 90%;
+        max-width: 300px;
+        padding: 70px 25px 25px;
+    }
+    
+    .nav-link {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+    
+    .theme-toggle {
+        height: 44px;
+        margin-top: 15px;
     }
 }
 
@@ -3313,27 +3597,90 @@ section {
 @media (max-width: 968px) {
     .nav-links {
         position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--background);
+        top: 0;
+        left: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--card-bg);
         flex-direction: column;
-        padding: 24px;
-        box-shadow: var(--shadow-lg);
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-        transition: all var(--transition-base);
+        padding: 80px 30px 30px;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 9999;
+        overflow-y: auto;
+        gap: 0;
     }
     
     .nav-links.active {
-        transform: translateY(0);
+        left: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 16px 20px;
+        margin: 4px 0;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .nav-link::after,
+    .nav-link::before {
+        display: none;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--background-alt);
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+    }
+    
+    .theme-toggle {
+        width: 100%;
+        margin: 20px 0 0 0;
+        border-radius: 12px;
+        height: 48px;
+        border: 2px solid var(--border-color);
+    }
+    
+    .theme-toggle:hover {
+        border-color: var(--primary-color);
+        transform: scale(1);
+    }
+    
+    /* Mobile menu overlay backdrop - using a separate element approach */
+    .nav-links::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .nav-links.active::after {
         opacity: 1;
+        visibility: visible;
         pointer-events: all;
     }
     
     .nav-toggle {
         display: flex;
+        z-index: 10000;
+        position: relative;
     }
     
     .nav-toggle.active span:nth-child(1) {

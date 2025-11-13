@@ -266,14 +266,47 @@ window.addEventListener('scroll', () => {
 navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    
+    // Prevent body scroll when menu is open
+    if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on a link or overlay
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navToggle.classList.remove('active');
         navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
     });
+});
+
+// Close mobile menu when clicking outside (on overlay)
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && 
+        !navLinks.contains(e.target) && 
+        !navToggle.contains(e.target) &&
+        e.target !== navLinks) {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+    }
+});
+
+// Close mobile menu on window resize if it's open
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 968 && navLinks.classList.contains('active')) {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+    }
 });
 
 // Smooth scroll for anchor links
